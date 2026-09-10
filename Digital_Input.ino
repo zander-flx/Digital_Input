@@ -6,7 +6,6 @@ bool SW2_state = 0;
 
 uint8_t const LED[] = {32, 33, 25, 26, 27, 14};
 uint8_t NUM_PINS = 6;
-uint8_t const LIMIT = 3;
 
 void setup() {
   // put your setup code here, to run once:
@@ -26,15 +25,16 @@ void loop() {
   SW1_state = digitalRead(SW1);
   SW2_state = digitalRead(SW2);
   
-  if (SW1_state && SW2_state){
+  if (SW1_state == 1 && SW2_state == 1){
+    clear();
     run();
-  } else if(SW1_state){
+  } else if(SW1_state == 1 && SW2_state == 0){
+    clear();
     alt();
-  } else if(SW2_state){
+  } else if(SW1_state == 0 && SW2_state == 1){
+    clear();
     blink();
   } else{
-    for(uint8_t a = 0 ; a < NUM_PINS ; a++){
-        digitalWrite(LED[a], LOW);
-      }
+    clear();
   }
 }

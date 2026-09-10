@@ -1,5 +1,5 @@
 void blink(){
-    for(uint8_t CYCLE = 0 ; CYCLE < LIMIT ; CYCLE++){
+    
         for(uint8_t a = 0 ; a < NUM_PINS ; a++){
             digitalWrite(LED[a], HIGH);
         }
@@ -11,11 +11,11 @@ void blink(){
         }
 
         delay(500);
-    }
+    
 }
 
 void alt(){
-    for(uint8_t CYCLE = 0 ; CYCLE < LIMIT ; CYCLE++){
+    
         for(uint8_t a = 0 ; a < NUM_PINS/2 ; a++){
             digitalWrite(LED[a], HIGH);
         }
@@ -35,14 +35,10 @@ void alt(){
         }
 
         delay(500);
-    }
-    for(uint8_t a = 3 ; a < NUM_PINS ; a++){
-        digitalWrite(LED[a], LOW);
-    }
 }
 
 void run(){
-    for(uint8_t CYCLE = 0 ; CYCLE < LIMIT ; CYCLE++){
+    
         for(uint8_t a = 0 ; a < NUM_PINS ; a++){
             digitalWrite(LED[a], HIGH);
 
@@ -53,7 +49,7 @@ void run(){
             delay(250);
         }
 
-        for(uint8_t a = NUM_PINS - 1 ; a >= 0 ; a--){
+        for(uint8_t a = NUM_PINS - 2 ; a > 0 ; a--){
             digitalWrite(LED[a], HIGH);
 
             delay(250);
@@ -62,5 +58,11 @@ void run(){
 
             delay(250);
         }
+    
+}
+
+void clear(){
+    for(uint8_t a = 3 ; a < NUM_PINS ; a++){
+        digitalWrite(LED[a], LOW);
     }
 }
